@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://localhost:1075/VB/Services/Logistica/Almacen.svc?wsdl" filename="Almacen.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:1075/VB/Services/Logistica/Almacen.svc?xsd=xsd1" filename="Almacen.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://localhost:1075/VB/Services/Logistica/Almacen.svc?disco" filename="Almacen.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:1075/VB/Services/Logistica/Almacen.svc?xsd=xsd0" filename="Almacen0.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

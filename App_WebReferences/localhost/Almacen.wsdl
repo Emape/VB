@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Almacen" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1075/VB/Services/Logistica/Almacen.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1075/VB/Services/Logistica/Almacen.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Almacen_listarGuia_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarGuia" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarGuia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarGuiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarRequerimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarRequerimiento" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarRequerimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarRequerimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarGuiaDetallei_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarGuiaDetallei" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarGuiaDetallei_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarGuiaDetalleiResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_verificarGuiaDetallei_InputMessage">
+    <wsdl:part name="parameters" element="tns:verificarGuiaDetallei" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_verificarGuiaDetallei_OutputMessage">
+    <wsdl:part name="parameters" element="tns:verificarGuiaDetalleiResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarTransaccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarTransaccion" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarTransaccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarTransaccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarViales_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarViales" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarViales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarVialesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarOrdenCompraDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarOrdenCompraDetalle" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarOrdenCompraDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarOrdenCompraDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarContratoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarContratoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarContratoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarContratoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarTransferencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarTransferencia" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarTransferencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarTransferenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarRequerimientoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarRequerimientoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarRequerimientoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarRequerimientoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_ObtenerRequerimientoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRequerimientoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_ObtenerRequerimientoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRequerimientoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarTipoTransaccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoTransaccion" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarTipoTransaccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoTransaccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarTipoTransaccionTransferencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoTransaccionTransferencia" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarTipoTransaccionTransferencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoTransaccionTransferenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarAlmacenStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarAlmacenStock" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarAlmacenStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarAlmacenStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarBienServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarBienServicio" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_listarBienServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarBienServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_InsertarCabeceraGuia_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarCabeceraGuia" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_InsertarCabeceraGuia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarCabeceraGuiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_CodigoGuia_InputMessage">
+    <wsdl:part name="parameters" element="tns:CodigoGuia" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_CodigoGuia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CodigoGuiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_InsertarDetalleGuia_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarDetalleGuia" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_InsertarDetalleGuia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarDetalleGuiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_anularGuiai_InputMessage">
+    <wsdl:part name="parameters" element="tns:anularGuiai" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_anularGuiai_OutputMessage">
+    <wsdl:part name="parameters" element="tns:anularGuiaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_anularRequerimientoAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:anularRequerimientoAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_anularRequerimientoAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:anularRequerimientoAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_InsertarCabeceraRequerimientoAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarCabeceraRequerimientoAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_InsertarCabeceraRequerimientoAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarCabeceraRequerimientoAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_CodigoRequerimientoAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:CodigoRequerimientoAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_CodigoRequerimientoAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CodigoRequerimientoAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_InsertarDetalleRequerimientoAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarDetalleRequerimientoAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_InsertarDetalleRequerimientoAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarDetalleRequerimientoAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_ImprimirRequerimientoAlmacen_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImprimirRequerimientoAlmacen" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_ImprimirRequerimientoAlmacen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImprimirRequerimientoAlmacenResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_Acceso_InputMessage">
+    <wsdl:part name="parameters" element="tns:Acceso" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_Acceso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccesoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_Permiso_InputMessage">
+    <wsdl:part name="parameters" element="tns:Permiso" />
+  </wsdl:message>
+  <wsdl:message name="Almacen_Permiso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PermisoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Almacen">
+    <wsdl:operation name="listarGuia">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarGuia" message="tns:Almacen_listarGuia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarGuiaResponse" message="tns:Almacen_listarGuia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarRequerimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarRequerimiento" message="tns:Almacen_listarRequerimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarRequerimientoResponse" message="tns:Almacen_listarRequerimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarGuiaDetallei">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarGuiaDetallei" message="tns:Almacen_listarGuiaDetallei_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarGuiaDetalleiResponse" message="tns:Almacen_listarGuiaDetallei_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="verificarGuiaDetallei">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/verificarGuiaDetallei" message="tns:Almacen_verificarGuiaDetallei_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/verificarGuiaDetalleiResponse" message="tns:Almacen_verificarGuiaDetallei_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarTransaccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarTransaccion" message="tns:Almacen_listarTransaccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarTransaccionResponse" message="tns:Almacen_listarTransaccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarAlmacen" message="tns:Almacen_listarAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarAlmacenResponse" message="tns:Almacen_listarAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarViales">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarViales" message="tns:Almacen_listarViales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarVialesResponse" message="tns:Almacen_listarViales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarOrdenCompraDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarOrdenCompraDetalle" message="tns:Almacen_listarOrdenCompraDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarOrdenCompraDetalleResponse" message="tns:Almacen_listarOrdenCompraDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarContratoDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarContratoDetalle" message="tns:Almacen_listarContratoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarContratoDetalleResponse" message="tns:Almacen_listarContratoDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarTransferencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarTransferencia" message="tns:Almacen_listarTransferencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarTransferenciaResponse" message="tns:Almacen_listarTransferencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarRequerimientoDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarRequerimientoDetalle" message="tns:Almacen_listarRequerimientoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarRequerimientoDetalleResponse" message="tns:Almacen_listarRequerimientoDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRequerimientoDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/ObtenerRequerimientoDetalle" message="tns:Almacen_ObtenerRequerimientoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/ObtenerRequerimientoDetalleResponse" message="tns:Almacen_ObtenerRequerimientoDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoTransaccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarTipoTransaccion" message="tns:Almacen_listarTipoTransaccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarTipoTransaccionResponse" message="tns:Almacen_listarTipoTransaccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoTransaccionTransferencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarTipoTransaccionTransferencia" message="tns:Almacen_listarTipoTransaccionTransferencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarTipoTransaccionTransferenciaResponse" message="tns:Almacen_listarTipoTransaccionTransferencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarAlmacenStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarAlmacenStock" message="tns:Almacen_listarAlmacenStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarAlmacenStockResponse" message="tns:Almacen_listarAlmacenStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarBienServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/listarBienServicio" message="tns:Almacen_listarBienServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/listarBienServicioResponse" message="tns:Almacen_listarBienServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarCabeceraGuia">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/InsertarCabeceraGuia" message="tns:Almacen_InsertarCabeceraGuia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/InsertarCabeceraGuiaResponse" message="tns:Almacen_InsertarCabeceraGuia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CodigoGuia">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/CodigoGuia" message="tns:Almacen_CodigoGuia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/CodigoGuiaResponse" message="tns:Almacen_CodigoGuia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarDetalleGuia">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/InsertarDetalleGuia" message="tns:Almacen_InsertarDetalleGuia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/InsertarDetalleGuiaResponse" message="tns:Almacen_InsertarDetalleGuia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="anularGuiai">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/anularGuiai" message="tns:Almacen_anularGuiai_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/anularGuiaiResponse" message="tns:Almacen_anularGuiai_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="anularRequerimientoAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/anularRequerimientoAlmacen" message="tns:Almacen_anularRequerimientoAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/anularRequerimientoAlmacenResponse" message="tns:Almacen_anularRequerimientoAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarCabeceraRequerimientoAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/InsertarCabeceraRequerimientoAlmacen" message="tns:Almacen_InsertarCabeceraRequerimientoAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/InsertarCabeceraRequerimientoAlmacenResponse" message="tns:Almacen_InsertarCabeceraRequerimientoAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CodigoRequerimientoAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/CodigoRequerimientoAlmacen" message="tns:Almacen_CodigoRequerimientoAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/CodigoRequerimientoAlmacenResponse" message="tns:Almacen_CodigoRequerimientoAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarDetalleRequerimientoAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/InsertarDetalleRequerimientoAlmacen" message="tns:Almacen_InsertarDetalleRequerimientoAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/InsertarDetalleRequerimientoAlmacenResponse" message="tns:Almacen_InsertarDetalleRequerimientoAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImprimirRequerimientoAlmacen">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/ImprimirRequerimientoAlmacen" message="tns:Almacen_ImprimirRequerimientoAlmacen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/ImprimirRequerimientoAlmacenResponse" message="tns:Almacen_ImprimirRequerimientoAlmacen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Acceso">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/Acceso" message="tns:Almacen_Acceso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/AccesoResponse" message="tns:Almacen_Acceso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Permiso">
+      <wsdl:input wsaw:Action="http://tempuri.org/Almacen/Permiso" message="tns:Almacen_Permiso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Almacen/PermisoResponse" message="tns:Almacen_Permiso_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebHttpBinding_Almacen" type="tns:Almacen">
+    <wsdl:operation name="listarGuia">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarRequerimiento">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarGuiaDetallei">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="verificarGuiaDetallei">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarTransaccion">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarAlmacen">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarViales">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarOrdenCompraDetalle">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarContratoDetalle">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarTransferencia">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarRequerimientoDetalle">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRequerimientoDetalle">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoTransaccion">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoTransaccionTransferencia">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarAlmacenStock">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="listarBienServicio">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarCabeceraGuia">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CodigoGuia">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarDetalleGuia">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="anularGuiai">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="anularRequerimientoAlmacen">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarCabeceraRequerimientoAlmacen">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CodigoRequerimientoAlmacen">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarDetalleRequerimientoAlmacen">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ImprimirRequerimientoAlmacen">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Acceso">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Permiso">
+      <wsdl:input />
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Almacen">
+    <wsdl:port name="WebHttpBinding_Almacen" binding="tns:WebHttpBinding_Almacen" />
+  </wsdl:service>
+</wsdl:definitions>
