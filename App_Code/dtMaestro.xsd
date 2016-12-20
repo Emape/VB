@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtMaestro" targetNamespace="http://tempuri.org/dtMaestro.xsd" xmlns:mstns="http://tempuri.org/dtMaestro.xsd" xmlns="http://tempuri.org/dtMaestro.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtMaestro" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dtMaestro" msprop:Generator_UserDSName="dtMaestro">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LocadorxGerencia" msprop:Generator_TableClassName="LocadorxGerenciaDataTable" msprop:Generator_TableVarName="tableLocadorxGerencia" msprop:Generator_TablePropName="LocadorxGerencia" msprop:Generator_RowDeletingName="LocadorxGerenciaRowDeleting" msprop:Generator_RowChangingName="LocadorxGerenciaRowChanging" msprop:Generator_RowEvHandlerName="LocadorxGerenciaRowChangeEventHandler" msprop:Generator_RowDeletedName="LocadorxGerenciaRowDeleted" msprop:Generator_UserTableName="LocadorxGerencia" msprop:Generator_RowChangedName="LocadorxGerenciaRowChanged" msprop:Generator_RowEvArgName="LocadorxGerenciaRowChangeEvent" msprop:Generator_RowClassName="LocadorxGerenciaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdProveedor" msprop:Generator_ColumnVarNameInTable="columnIdProveedor" msprop:Generator_ColumnPropNameInRow="IdProveedor" msprop:Generator_ColumnPropNameInTable="IdProveedorColumn" msprop:Generator_UserColumnName="IdProveedor" type="xs:string" minOccurs="0" />
+              <xs:element name="Razonsocial" msprop:Generator_ColumnVarNameInTable="columnRazonSocial" msprop:Generator_ColumnPropNameInRow="RazonSocial" msprop:Generator_ColumnPropNameInTable="RazonSocialColumn" msprop:Generator_UserColumnName="Razonsocial" type="xs:string" minOccurs="0" />
+              <xs:element name="Direccion" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion" type="xs:string" minOccurs="0" />
+              <xs:element name="Distrito" msprop:Generator_ColumnVarNameInTable="columnDistrito" msprop:Generator_ColumnPropNameInRow="Distrito" msprop:Generator_ColumnPropNameInTable="DistritoColumn" msprop:Generator_UserColumnName="Distrito" type="xs:string" minOccurs="0" />
+              <xs:element name="DescripCC" msprop:Generator_ColumnVarNameInTable="columnDescripCC" msprop:Generator_ColumnPropNameInRow="DescripCC" msprop:Generator_ColumnPropNameInTable="DescripCCColumn" msprop:Generator_UserColumnName="DescripCC" type="xs:string" minOccurs="0" />
+              <xs:element name="DescripEmp" msprop:Generator_ColumnVarNameInTable="columnDescripEmp" msprop:Generator_ColumnPropNameInRow="DescripEmp" msprop:Generator_ColumnPropNameInTable="DescripEmpColumn" msprop:Generator_UserColumnName="DescripEmp" type="xs:string" minOccurs="0" />
+              <xs:element name="Importe" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:string" minOccurs="0" />
+              <xs:element name="flagUsoGG" msprop:Generator_ColumnVarNameInTable="columnflagUsoGG" msprop:Generator_ColumnPropNameInRow="flagUsoGG" msprop:Generator_ColumnPropNameInTable="flagUsoGGColumn" msprop:Generator_UserColumnName="flagUsoGG" type="xs:string" minOccurs="0" />
+              <xs:element name="Tarea" msprop:Generator_ColumnVarNameInTable="columnTarea" msprop:Generator_ColumnPropNameInRow="Tarea" msprop:Generator_ColumnPropNameInTable="TareaColumn" msprop:Generator_UserColumnName="Tarea" type="xs:string" minOccurs="0" />
+              <xs:element name="DescripLocadorTipo" msprop:Generator_ColumnVarNameInTable="columnDescripLocadorTipo" msprop:Generator_ColumnPropNameInRow="DescripLocadorTipo" msprop:Generator_ColumnPropNameInTable="DescripLocadorTipoColumn" msprop:Generator_UserColumnName="DescripLocadorTipo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
