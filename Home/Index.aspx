@@ -59,7 +59,7 @@
             permiso();
 
 
-          
+
 
 
         });
@@ -126,16 +126,16 @@
 <input type="hidden" name="id_empresa" id="id_empresa" class="id_empresa">
             
             <% ElseIf Session("vial") = "1" Then%> 
-            <input type="hidden" name="id_empresa"  id="id_empresa" class="id_empresa" value="4">
+            <input type="hidden" name="id_empresa"  id="Hidden1" class="id_empresa" value="4">
             <% ElseIf Session("siaf") = "1" Then%> 
-            <input type="hidden" name="id_empresa"  id="id_empresa" class="id_empresa" value="5">
+            <input type="hidden" name="id_empresa"  id="Hidden2" class="id_empresa" value="5">
             <% End If%> 
             
 
             <% If Session("transporte") = "1" Then%> 
             <input type="hidden" name="id_transporte"  id="id_transporte" value="1">
             <% Else%> 
-            <input type="hidden" name="id_transporte"  id="id_transporte" value="0">
+            <input type="hidden" name="id_transporte"  id="Hidden3" value="0">
             <% End If%> 
              
             <!-- Navbar Right Menu -->
@@ -689,17 +689,17 @@
 	    //$(document).on('click', '.asignar_ordcomprasreq_masiva', function (event) {
 	    //$("#EnviarTodosCompra").click(function () {
 	    function Masivamente() {
-            var i = 0
+	        var i = 0
 	        //alert($("#nroFilas").val());
 	        for (i = 0; i <= ($("#nroFilas").val()) ; i++) {
 	            $("#Requerimiento" + i).click();
-                //alert(i)
+	            //alert(i)
 	        }
 
 	        $("#tbody_detreq").html("");
-            document.getElementById("EnviarTodos").disabled = true;
-            $("#guardarordencompra").show();
-            $("#QuitarTodos").show();
+	        document.getElementById("EnviarTodos").disabled = true;
+	        $("#guardarordencompra").show();
+	        $("#QuitarTodos").show();
 
 	        //$('#tabla_req tr').removeClass('highlighted');
 
@@ -759,7 +759,7 @@
 	        //            //html += '<tr><td>' + n + '</td><td>' + this.IdRequerimiento + '<input name="cod_idreq" id="cod_idreq' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdRequerimiento + ' ><input name="impuesto_req" id="impuesto_req' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=0.00 ><input name="cod_centcost" id="cod_centcost' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdCentroCosto + ' ></td><td>' + this.IdNumeroItem + '</td><td>' + this.IdBienServicio + '</td><td>' + this.UM + '</td><td>' + this.Descripcion + '</td><td>' + this.Siglas + '</td><td>' + this.Clasificador + '</td><td>' + this.Actividad + '</td><td>' + this.IdFinalidad + '</td><td>' + this.Meta + '</td><td><input name="costo" id="costo' + n + '" type="text" disabled style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.CostoItem + ' ><input name="costo_req" id="costo_req' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.CostoItem + ' ></td>' + '<td><input id="disponible' + n + '" name="disponible" type="text" disabled style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.SaldoCantidad + ' ></td>' + '<td><input id="cantidad' + n + '" class=cantidad name="cantidad" type="text" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.SaldoCantidad + ' onkeyup=sol_cant("' + n + '");subtot("' + n + '") ></td>' + '<td class="sub_total"><input style="width:60px;border-radius:5px;border:1px solid #ccc" id="subtotal' + n + '" name="subtotal" disabled class=subtotal type=text value="' + (this.SaldoCantidad * this.CostoItem).toFixed(2) + '" ></td>  <td><span class="fa fa-close clsEliminarFilaAdicRequer" ><span></td> </tr>';
 
 	        //            html += '<tr><td>' + n + '</td><td>' + this.IdRequerimiento + '<input name="cod_idreq" id="cod_idreq' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdRequerimiento + ' ><input name="impuesto_req" id="impuesto_req' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=0.00 ><input name="cod_centcost" id="cod_centcost' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdCentroCosto + ' ><input name="cod_nroitem" id="cod_nroitem' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdNumeroItem + ' ><input name="cod_bienser" id="cod_bienser' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdBienServicio + ' ><input name="cod_idum" id="cod_idum' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdUnidadMedida + ' ><input name="sabdoreserva_req" id="sabdoreserva_req' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.SaldoReservaActual + ' ><input name="partidapresu" id="partidapresu' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.PartidaPresupuestal + ' ><input name="cod_trans" id="cod_trans' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdTransaccion + ' ><input name="cod_ctacontab" id="cod_ctacontab' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdCuentaContable + ' ><input name="cod_almac" id="cod_almac' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdAlmacen + ' ></td><td>' + this.IdNumeroItem + '</td><td>' + this.IdBienServicio + '</td><td>' + this.UM + '</td><td>' + this.Descripcion + '</td><td>' + this.Siglas + '</td><td>' + this.Clasificador + '</td><td>' + this.Actividad + '</td><td>' + this.IdFinalidad + '</td><td>' + this.Meta + '</td><td><input id="disponible' + n + '" name="disponible" type="text" disabled style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.SaldoCantidad + ' ></td>' + '<td><input id="cantidad' + n + '" class=cantidad name="cantidad" type="text" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.SaldoCantidad + ' onkeyup=sol_cant("' + n + '");subtot("' + n + '") ></td>' + '<td><input name="costo" id="costo' + n + '" type="text" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.CostoItem + ' onkeyup=sol_cant("' + n + '");subtot("' + n + '") ><input name="costo_req" id="costo_req' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.CostoItem + ' ></td>' + '<td class="sub_total"><input style="width:60px;border-radius:5px;border:1px solid #ccc" id="subtotal' + n + '" name="subtotal" disabled class=subtotal type=text value="' + (this.SaldoCantidad * this.CostoItem).toFixed(2) + '" ></td>  <td><span class="fa fa-close clsEliminarFilaAdicRequer" ><span></td> </tr>';
-	                    
+
 
 	        //            //<input name="cod_idreq" id="cod_idreq' + n + '" type="hidden" style="width:60px;border-radius:5px;border:1px solid #ccc" value=' + this.IdRequerimiento + ' >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 	        //            //html = '<tr><td>' + $("#n").val() + '</td>
@@ -806,7 +806,7 @@
 	        //            $("#guardarordencompra").show();
 	        //            $("#QuitarTodos").show();
 	        //        });
-	                
+
 	        //        //$("#cod_idreqx").val(idreque);
 	        //        //$("#cod_nroitemx").val(idnumitem);
 	        //        //$("#cod_bienserx").val(idbienserv);
@@ -996,7 +996,7 @@
 	                    if (html == "") { $("#guardar").hide(); }
 	                    else {
 
-	                        $("#guardar").show(); $(".pbrush").show(); $(".msj1").show(); $(".msj2").html($ida); $("#bloqueo2").show(); $(".msjprov").html("PROVEEDOR: "+$RazonSocial); $(".msjcc").html("CENTRO COSTO: "+$CentroCosto);
+	                        $("#guardar").show(); $(".pbrush").show(); $(".msj1").show(); $(".msj2").html($ida); $("#bloqueo2").show(); $(".msjprov").html("PROVEEDOR: " + $RazonSocial); $(".msjcc").html("CENTRO COSTO: " + $CentroCosto);
 	                    }
 
 	                },
@@ -1088,7 +1088,7 @@
 	            return false;
 
 	        } else if (v == 7) {
-	            
+
 	            $("#tabla_det .cabtransferencia").hide();
 	            var $row = $(this).closest("tr");
 	            $row.addClass('highlighted');
