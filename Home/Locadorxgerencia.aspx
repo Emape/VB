@@ -55,7 +55,7 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
                       <div class="col-xs-2">
 					<div class="dataTables_length">
 					 &nbsp;  Gerencia : <br>
-                       <asp:dropdownlist runat="server" name="gerencia" id="gerencia" aria-controls="tabla_inventario" class="form-control input-sm" onchange="listar();listar_departamento();" style="width:150px">
+                       <asp:dropdownlist runat="server" name="gerencia" id="gerencia" aria-controls="tabla_inventario" class="form-control input-sm" onchange="listar_departamento();" style="width:150px">
                            <asp:listitem value="0"> Todas </asp:listitem>
                        </asp:dropdownlist>
 					</div>
@@ -291,11 +291,11 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
                 dataType: "json",
                 success: function (response) {
                     var customers = eval(response.d);
-                    var html = "<option value='0'> Todas </option>";
+                    var html = "<option value='0' selected> Todas </option>";
                     $.each(customers, function () {
                         html += "<option value='" + this.IdCentroCosto + "'  >" + this.DescripcionCorta + "</option>";
                     });
-                    $("#departamento").html(html == "" ? "" : html);
+                    $("#departamento").html(html == "" ? "" : html); listar();
                 },
                 error: function (a, b, c) {
                     alert(a.responseText);
