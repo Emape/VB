@@ -171,6 +171,40 @@ Public Class Maestro
     End Function
 
     <OperationContract()> _
+<WebInvoke(Method:="POST", ResponseFormat:=WebMessageFormat.Json)> _
+    Public Function listarBienServicio(descripcion As String, tipo As String, empresa As String) As String
+        Dim lista As New List(Of Object)()
+        Using conn As New SqlConnection()
+            Dim cx As String = entidad(empresa)
+
+            conn.ConnectionString = ConfigurationManager.ConnectionStrings(cx).ConnectionString
+            Using cmd As New SqlCommand()
+
+                cmd.CommandText = "SP_LOG_Listar_BienServicio"
+                cmd.CommandType = CommandType.StoredProcedure
+
+                cmd.Parameters.AddWithValue("@Descripcion", descripcion)
+                cmd.Parameters.AddWithValue("@IdTipoBienServicio", tipo)
+
+                cmd.Connection = conn
+                conn.Open()
+                Using sdr As SqlDataReader = cmd.ExecuteReader()
+                    While sdr.Read()
+                        lista.Add(New With { _
+                             Key .IdBienServicio = sdr("IdBienServicio"), _
+                             Key .Descripcion = sdr("Descripcion") _
+                        })
+                    End While
+                End Using
+                conn.Close()
+            End Using
+            Return (New JavaScriptSerializer().Serialize(lista))
+        End Using
+    End Function
+
+
+
+    <OperationContract()> _
   <WebInvoke(Method:="POST", ResponseFormat:=WebMessageFormat.Json)> _
     Public Function EliminarAsignacionGerencia(ruc As String, empresa As String) As String
         Dim strMensaje As String = ""
@@ -235,4 +269,64 @@ Public Class Maestro
         End Using
     End Function
 
+    <OperationContract()> _
+    <WebInvoke(Method:="POST", ResponseFormat:=WebMessageFormat.Json)> _
+    Public Function listarIncidencia() As String
+        Dim lista As New List(Of Object)()
+        Using conn As New SqlConnection()
+            Dim cx As String = entidad("1")
+            Dim fa, fc As String
+            conn.ConnectionString = ConfigurationManager.ConnectionStrings(cx).ConnectionString
+            Using cmd As New SqlCommand()
+
+                cmd.CommandText = "SP_MAE_ListarIncidencia"
+                cmd.CommandType = CommandType.StoredProcedure
+
+                'cmd.Parameters.AddWithValue("@IdAnno", Year(Now))
+
+                cmd.Connection = conn
+                conn.Open()
+                Using sdr As SqlDataReader = cmd.ExecuteReader()
+                    While sdr.Read()
+
+                        If (IsDBNull(sdr("fecha_creada"))) Then
+                            fc = ""
+                        Else
+                            fc = Format(sdr("fecha_creada"), "dd/MM/yyyy")
+                        End If
+
+                        If (IsDBNull(sdr("fecha_atencion"))) Then
+                            fa = ""
+                        Else
+                            fa = Format(sdr("fecha_atencion"), "dd/MM/yyyy")
+                        End If
+
+                        lista.Add(New With { _
+                             Key .id_registro = sdr("id_registro"), _
+                             Key .nro_incidencia = sdr("nro_incidencia"), _
+                             Key .motivo = sdr("motivo"), _
+                             Key .descripcion = sdr("descripcion"), _
+                             Key .usuario_creador = sdr("usuario_creador"), _
+                             Key .estado = sdr("estado"), _
+                             Key .prioridad = sdr("prioridad"), _
+                             Key .accion = sdr("accion"), _
+                             Key .fecha_creada = fc, _
+                             Key .fecha_atencion = fa, _
+                             Key .usuario_modificador = sdr("usuario_modificador"), _
+                             Key .correo = sdr("correo"), _
+                             Key .area = sdr("area"), _
+                             Key .entidad_solucion = sdr("entidad_solucion"), _
+                             Key .images = sdr("images"), _
+                             Key .DescripcionCorta = sdr("DescripcionCorta"), _
+                             Key .usuario = sdr("usuario"), _
+                             Key .supervisor = sdr("supervisor"), _
+                             Key .estado_registro = sdr("estado_registro") _
+                        })
+                    End While
+                End Using
+                conn.Close()
+            End Using
+            Return (New JavaScriptSerializer().Serialize(lista))
+        End Using
+    End Function
 End Class

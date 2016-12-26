@@ -1,72 +1,5 @@
-<%@ Page Language="VB" AutoEventWireup="false" CodeFile="~/Home/RequerimientoServicio.aspx.vb" Inherits="RequerimientoServicio" %>
+<%@ Page Language="VB" AutoEventWireup="false" CodeFile="~/Home/RequerimientoLocador.aspx.vb" Inherits="RequerimientoLocador" %>
 
-<!--<style>
-#tabla_guia thead, #tabla_guia tbody, #tabla_guia tr,#tabla_guia  td,#tabla_guia th { display: block; }
-
-#tabla_guia tr:after {
-    content: ' ';
-    display: block;
-    visibility: hidden;
-    clear: both;
-}
-
-#tabla_guia thead th { 
-    height: 20px;
-    line-height: 30px;
-    /*text-align: left;*/
-}
-
-#tabla_guia tbody {
-    height: 345px;
-    overflow-y: auto;
-}
-
-#tabla_guia2 tbody {
-    height: 120px;
-    overflow-y: auto;
-}
-
-#tabla_guia thead {
-    /* fallback */
-    /* minus scroll bar width */
-    width: calc(100% - 17px);
-}
-
-#tabla_guia2 thead {
-    /* fallback */
-    width: 9%;
-    /* minus scroll bar width */
-    width: calc(100% - 17px);
-}
-
-#tabla_guia tbody { border-top: 2px solid black; }
-
-#tabla_guia tbody td,#tabla_guia thead th {
-    float: left;
-	
-}
-
-#tabla_guia2 tbody td,#tabla_guia2 thead th {
-    width: 9%;
-    float: left;
-	
-}
-
-#tabla_guia tbody td:last-child,#tabla_guia thead th:last-child {
-    
-}
-
-#tabla_guia tbody td{
-height:30px;
-}
-
-#tabla_guia2 tbody td{
-height:30px;
-}
-
-#tabla_guia, #tabla_guia2{
-font-size:12px !important;
-}-->
 	<style>
 tr.highlighted td {
     background-color: rgb(102, 153, 204);
@@ -165,7 +98,7 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
                             <i  class="fa fa-minus-circle" ></i> &nbsp; ANULAR
                         </span>
                             &nbsp;
-                        <span  title="Agregar" class="btn btn-success" style="font-size:12px" data-toggle="modal" data-target="#guiaiInsertModal" onclick="limpiar()">
+                        <span  title="Agregar" class="btn btn-success" style="font-size:12px" data-toggle="modal" data-target="#guiaiInsertModal" >
                             <i  class="fa fa-plus" ></i> &nbsp; AGREGAR
                         </span>
 
@@ -183,10 +116,10 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
     <input type="hidden" name="accion" id="accion" >
 <div class="modal fade" id="guiaiInsertModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content" style="height:800px">
             <div class="modal-header">
                
-                <h1 class="modal-title" style="font-size:18px;font-weight:bold">Registrar Requerimiento de Almacén</h1>
+                <h1 class="modal-title" style="font-size:18px;font-weight:bold">Registrar Requerimiento de Locador</h1>
             
             
             <span style="float:right;margin-top:-28px">
@@ -204,14 +137,8 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
             </div>
 
             <div class="modal-body">
-            
-            
-						
-                                                        <input type="hidden" name="contador" id="contador" value=1>
+<input type="hidden" name="contador" id="contador" value=1>
                                                         
-				
-                                                         
-
                             <div class="form-group">
                                 
                                 
@@ -237,10 +164,12 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
 								
 				
 								
-								<label class="col-lg-2 control-label">Memorandum</label>
+								<label class="col-lg-2 control-label">Gerencia</label>
                                 <div class="col-lg-3">
                                
-                                        <input  type="text" class="form-control" name="memo" id="memo"/>
+                                        <select  type="text" class="form-control" name="departamento" id="departamento" onchange="listar_locador()">
+                                            <option value=""></option>
+                                            </select>
                                                                      
                                    
                                 </div>
@@ -251,114 +180,19 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
                                     <input  type="text" class="form-control" name="concepto" id="concepto"/>
                                 </div>
 						 </div>
-							
-							
-							
+
+                <br>
 							<div class="form-group">
-		<div style="height:270px">					
-		<div id="tab_prin" class="row" style="margin-left:10px;margin-right:10px;height:270px">
-							
-							
-            
-					
-				<ul class="nav nav-tabs" id="myTab">
-				<!--<li class="active" ><a href="#contrato">Contratos</a></li>-->
-				<!--<li id="lireq" class=""><a href="#req">Requerimientos</a></li>-->
-				<li ><a id="e_articulo" href="#articulo">Catálogo de Artículos</a></li>
-				<!--<li><a href="#provee">Proveedores</a></li>-->
-				<!--<li id="lioc" class=""><a href="#oc">Orden de Compra</a></li>-->
-				<!--<li><a href="#obra">Devoluci n de Obras</a></li>-->
-				</ul>
 
-		<div class="tab-content">
-		
-			<!--<div class="tab-pane active" id="contrato">
-			 <div class="col-md-12" style="height:280px">
-              <div class="box box-primary">
-                <div class="box-header"></div>
-                <div class="box-body pad table-responsive" style="height:230px">
-					<div id="tabla1"></div>
-					 </div>
-              </div>
-            </div>
-          </div>
-		-->  
-		
-		  
-		  <div class="tab-pane" id="articulo">
-			 <div class="col-md-12" style="height:280px">
-              <div class="box box-primary">
-                <div class="box-header"></div>
-				<div class="col-lg-8"></div> <label class="col-lg-1 control-label">Buscar:</label>  <div class="col-lg-3"><input type="text" name="search_req" id="search_req" class="form-control"></div>
-				
-                                <br><br>
-				
-                <div class="box-body pad table-responsive" style="height:230px">
-					
-					<table id="tabla_articulo" class="table table-bordered table-hover dataTable no-footer">
-				  <thead>
-                    <tr class="cabecera">
-                      <th class="auto-style1">Codigo </th><th class="auto-style1">Descripci&oacute;n </th><th class="auto-style1">U.M. </th><th class="auto-style1">Stock </th><th class="auto-style1">Reserva </th><th class="auto-style1">Disponible </th><th class="auto-style1">C.U. </th>
-					  </tr>
-                   </thead>
-				   <tbody id="tbody_req">
-					 <tr><td  colspan="3" align="center">No se encontraron resultados</td></tr>
-				   </tbody>
-                  </table>
-					 </div><!-- /.box -->
-              </div>
-            </div><!-- /.col -->
-          </div>
-		  
-		 <!-- <div class="tab-pane" id="provee">
-			 <div class="col-md-12" style="height:280px">
-              <div class="box box-primary">
-                <div class="box-header"></div>
-                <div class="box-body pad table-responsive" style="height:230px">
-					<div id="tabla4"></div>
-					 </div>
-              </div>
-            </div>
-          </div>-->
-		  <div class="tab-pane" id="oc">
-			 <div class="col-md-12" style="height:280px">
-              <div class="box box-primary">
-                <div class="box-header"></div>
-				<div class="col-lg-8"></div> <label class="col-lg-1 control-label">Buscar:</label>  <div class="col-lg-3"><input type="text" name="search_oc" id="search_oc" class="form-control"></div>
-				
-                                <br><br>
-                <div class="box-body pad table-responsive" style="height:230px">
-				
-					<table id="tabla_oc" class="table table-bordered table-hover dataTable no-footer">
-				  <thead>
-                    <tr class="cabecera">
-                      <th>N. O/C </th><th>Descripci&oacute;n </th><th>Fecha </th><th>Saldo </th>
-					  </tr>
-                   </thead>
-				   <tbody id="tbody_oc">
-					 <tr><td  colspan="4" align="center">No se encontraron resultados</td></tr>
-				   </tbody>
-                  </table>
-		 </div><!-- /.box -->
-              </div>
-            </div><!-- /.col -->
-          </div>
-
-					
-					</div>
-				
-				</div>
-						
-					</div>
 				  
                
 							
 			<div class="row" style="margin-left:10px;margin-right:10px">
-            <div class="col-md-12" style="height:280px">
+            <div class="col-md-12" style="height:500px">
               <div class="box box-primary">
                 <div class="box-header">
                   
-                  <h6 class="box-title"><small>Artículos de Requerimiento de Almacén</small></h6>
+                  <h4 class=""><b>Listado de Locadores</b></h4>
                 </div>
                   <input type="hidden" name="n" id="n">
                   <input type="hidden" name="atendidox" id="atendidox">
@@ -368,24 +202,24 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
                   <input type="hidden" name="unix" id="unix">
                   <input type="hidden" name="cod_articulox" id="cod_articulox">
                   
-                <div class="box-body pad table-responsive" style="overflow:scroll;height:230px">
+                <div class="box-body pad table-responsive" style="overflow:scroll;height:500px">
 					
-                  <table id="tabla_det"  class="table table-bordered table-hover dataTable no-footer">
+                  <table id="tablalocador"  class="table table-bordered table-hover dataTable no-footer">
 				  <thead>
                     <tr class="cabecera">
                      
-                      <th>Código </th>
-                      <th>Descripción </th>
-                      <th>U.M. </th>
-                      <th>C.U. </th>
-		      <th>Disponible </th>
-                      <th>Cantidad </th>
-                      <th>Subtotal </th>
-                        <th >Transporte </th>
+                      <th>N. </th>
+                      <th>Locador </th>
+                      <th style="text-align:center">Servicio </th>
+                      <th style="text-align:center">Partida </th>
+		              <th style="text-align:center">Cantidad </th>
+                      <th style="text-align:center">Costo </th>
+                      <th style="text-align:center">Total </th>
+
                       
                     </tr>
                    </thead>
-				   <tbody id="tbody_det">
+				   <tbody id="bodylocador">
                                       <tr id="tbody_det_sel"><td  colspan="11" align="center">No se encontraron resultados</td></tr>
              
 				   </tbody>
@@ -423,15 +257,18 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
 	         <table  id="tabla_guia" class="table table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="tabla_inventario_info">
 				  <thead>
                     <tr  class="cabecera">
-                      <th style="width:100px;text-align:center" ><B>N. Requerimiento</B> </th>
-                      <th style="width:100px;text-align:center" ><B>Fecha</B> </th>
-                      <th style="width:700px;text-align:center" ><B>Concepto</B> </th>
-                      <!-- <th width="10px">Estado </th>-->
+                      <th style="width:100px;text-align:center" ><B>Gerencia </B> </th>
+                      <th style="width:100px;text-align:center" ><B>Requerimiento</B> </th>
+                      <th style="width:700px;text-align:center" ><B>Fecha</B> </th>
+                      <th width="10px"><B>Concepto</B> </th>
+                      <th width="10px"><B>Importe</B> </th>
+                      <th width="10px"><B>Estado</B> </th>
+                       
                     </tr>
 					</thead>
                     
                    <tbody id="body_guia">
-			   <tr ><td  colspan="11" align="center">No se encontraron resultados</td></tr>		
+			   <tr ><td  colspan="6" align="center">No se encontraron resultados</td></tr>		
                   </table>
 
 				  
@@ -452,16 +289,19 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
                   <table id="tabla_guia2" class="table table-bordered table-hover dataTable no-footer">
 				  <thead>
                     <tr class="cabecera">
-                      <th style="width:30px"><b>Item</b> </th>
-                      <th style="width:90px"><b>Código</b> </th>
-                      <th style="width:620px"><b>Descripción</b> </th>
-                      <th style="width:70px"><b>Unidad</b> </th>
-                      <th style="width:60px"><b>Cantidad</b> </th>
+                      <th style="width:30px"><b>N.</b> </th>
+                      <th style="width:90px"><b>Servicio</b> </th>
+                      <th style="width:620px"><b>Partida Presupuestal</b> </th>
+                      <th style="width:70px"><b>CentroCosto</b> </th>
+                      <th style="width:60px"><b>Proveedor</b> </th>
+                      <th style="width:620px"><b>Cantidad</b> </th>
+                      <th style="width:70px"><b>Costo</b> </th>
+                      <th style="width:60px"><b>Total</b> </th>
                      
                     </tr>
                    </thead>
 				   <tbody id="body_guia2">
-					  <tr><td colspan=5 align=center>No se encontraron resultados</td></tr>
+					  <tr><td colspan=8 align=center>No se encontraron resultados</td></tr>
 				   </tbody>
                   </table>
 				  
@@ -469,7 +309,7 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
               </div>
             </div><!-- /.col -->
           </div><!-- ./row -->
-		    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             
@@ -491,11 +331,261 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modal-servicio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <form id="form_servicio">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="H1" style="font-size:18px;font-weight:bold">Asignar Servicio a ARMIJO ACHATA ROGER SMITH</h4>
+                </div>
+            
+                <div class="modal-body">
+
+
+				<div class="form-group">
+                                
+                               <div class="col-lg-1"> Buscar: </div>
+                                <div class="col-lg-10"> <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Ingrese texto mayor a 7 caracteres."> </div>
+                               <div class="col-lg-1"> <a class="btn btn-primary" onclick="listar_servicio()"><i class="fa fa-search"></i></a> </div>
+                               
+                    </div> <br> <br>
+                    <div class="form-group">
+
+<div class="box-body pad table-responsive" style="overflow:scroll;height:500px">
+					
+
+				  
+             
+
+                    <table id="tableservicio" class="table table-bordered table-hover dataTable no-footer">
+				  <thead>
+                    <tr class="cabecera">
+                     
+                      <th style="text-align:center;width:15px">N. </th>
+                      <th style="text-align:center;width:85px">Codigo </th>
+                      <th style="text-align:center">Descripción </th>
+
+
+                      
+                    </tr>
+                   </thead>
+				   <tbody id="bodyservicio">
+                       <tr id="fila1" style="cursor:pointer" ><td style="text-align:center" colspan="3"> No se encontraron resultados </td></tr>
+                       </table>
+                           </div>
+				
+		</div>
+
+                   
+                </div>
+
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="modal-partida" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="H2" style="font-size:18px;font-weight:bold">Asignar Partida a ARMIJO ACHATA ROGER SMITH</h4>
+                </div>
+            
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <p><b>Partida</b></p>
+                    <table id="Table2" class="table table-bordered table-hover dataTable no-footer">
+				  <thead>
+                    <tr class="cabecera">
+                     
+                      <th style="text-align:center;width:15px">N. </th>
+                      <th style="text-align:center;width:85px">Codigo </th>
+                      <th style="text-align:center">Descripción </th>
+
+
+                      
+                    </tr>
+                   </thead>
+				   <tbody id="Tbody2">
+                       <tr id="Tr1" style="cursor:pointer" ><td style="text-align:center" colspan="3"> No se encontraron resultados </td></tr> </table>
+		            </div>
+
+                     <div class="form-group">
+                        <p><b>Actividad</b></p>
+                    <table id="Table3" class="table table-bordered table-hover dataTable no-footer">
+				  <thead>
+                    <tr class="cabecera">
+                     
+                      <th style="text-align:center;width:15px">N. </th>
+                      <th style="text-align:center;width:85px">Codigo </th>
+                      <th style="text-align:center">Descripción </th>
+
+
+                      
+                    </tr>
+                   </thead>
+				   <tbody id="Tbody3">
+                       <tr id="Tr2" style="cursor:pointer" ><td style="text-align:center" colspan="3"> No se encontraron resultados </td></tr> </table>
+		            </div>
+                   
+                </div>
+                
+                <div class="modal-footer">
+                    <button id="Button2" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary btn-ok">Asignar</a>
+                    <a class="btn btn-success btn-ok">Asignar a Todos</a>
+           
+                </div>
+            </div>
+        </div>
+    </div>
+
+
         </section><!-- /.content -->
 	 
 	<script src="../js/jquery.uitablefilter.js" ></script>
             
+
+
+
+
+
+
+
+
     <script type="text/javascript">
+
+        $(document).ready(function () {
+            listar_departamento();
+
+            var f = new Date();
+
+            fechaactual = ('0' + f.getDate()).slice(-2).toString()
+               + '/' + ('0' + (f.getMonth() + 1)).slice(-2).toString()
+               + '/' + f.getFullYear().toString();
+
+            $("#fecha").val(fechaactual);
+
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        function listar_departamento() {
+            url = document.url;
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: 'http://' + location.host + '/Services/Maestro.svc/listarDepartamento',
+                data: '{"gerencia": "0","empresa": "' + $("#id_empresa").val() + '" }',
+                dataType: "json",
+                success: function (response) {
+                    var customers = eval(response.d);
+                    var html = "<option value='0' selected> Seleccionar </option>";
+                    $.each(customers, function () {
+                        html += "<option value='" + this.IdCentroCosto + "'  >" + this.DescripcionCorta + "</option>";
+                    });
+                    $("#departamento").html(html == "" ? "" : html);
+                },
+                error: function (a, b, c) {
+                    alert(a.responseText);
+                    $("#results").html(a.responseText);
+                }
+            });
+        }
+
+        function listar_locador() {
+            var departamento = $("#departamento").val();
+            $("#bodylocador").html("<tr><td colspan=11><div align=center ><img src='../images/loader.gif'></div></td></tr>");
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: '{"gerencia": "0","departamento": "' + departamento + '","empresa": "' + $("#id_empresa").val() + '" }',
+                url: 'http://' + location.host + '/Services/Maestro.svc/listarLocadorArea',
+                dataType: "json",
+                success: function (response) {
+                    var customers = eval(response.d);
+                    var html = "";
+                    var xnro = 1;
+                    $.each(customers, function () {
+
+                        if (this.DescripCC == "") {
+                            des = 0;
+                        }
+                        else {
+                            des = 1;
+                        }
+
+                        html += "<tr id='filaA" + xnro + "' style='cursor:pointer'><td style='text-align:center'>" + xnro + " </td><td style='text-align:left'>" + this.IdProveedor +' - ' + this.Razonsocial +
+                                " </td><td  style='text-align:center'><a href='#' data-toggle='modal' data-target='#modal-servicio'  title='xxx ggg' onclick='asignar_fila()'><input type='text' name='cod_servicio[]' id='cod_servicio" + xnro + "'><span id='txt_servicio" + xnro + "'><i class='fa fa-arrow-circle-up' style='font-size:16px'></i></span></a></td><td style='text-align:center'><a href='#' data-toggle='modal' data-target='#modal-partida'><input type='text' name='cod_partida[]' id='cod_partida" + xnro + "'><span id='txt_partida" + xnro + "'><i class='fa fa-arrow-circle-up' style='font-size:16px'></i></span></a></td><td class='suministro' style='text-align:left'><input type='text' value='1' style='text-align:center;width:50px;border-radius:5px;border:1px solid #ccc'></td><td style='text-align:right'>" + this.Importe.toFixed(2) +
+                                " </td><td style='text-align:center' ><input type='text' value='0.00' readonly style='padding-right:5px;width:50px;border-radius:5px;border:1px solid #ccc;background:#eee;text-align:right'></td><td style='text-align:center' ><i class='fa fa-close'></i></td></tr>";
+
+                        xnro++;
+                    });
+
+                    $("#bodylocador").html(html == "" ? "<tr><td colspan='11'> <div align=center>No se encontraron resultados</div></td></tr>" : html);
+                    //$("tablelocador").tablesorter();
+                },
+                error: function (a, b, c) {
+                    alert(a.responseText);
+                    $("#results").html(a.responseText);
+                }
+            });
+        }
+
+        function listar_servicio() {
+            if ($("#form_servicio #descripcion").val().length<8) {
+                alert("Ingrese caracteres mayor a 7 en el campo buscar.")
+            }
+            else{
+
+            $("#bodyservicio").html("<tr><td colspan=3><div align=center ><img src='../images/loader.gif'></div></td></tr>");
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: '{"descripcion": "' + $("#form_servicio #descripcion").val() + '","tipo": "S","empresa": "' + $("#id_empresa").val() + '" }',
+                url: 'http://' + location.host + '/Services/Maestro.svc/listarBienServicio',
+                dataType: "json",
+                success: function (response) {
+                    var customers = eval(response.d);
+                    var html = "";
+                    var xnro = 1;
+                    $.each(customers, function () {
+                        html += "<tr id='filaB" + xnro + "' style='cursor:pointer' onclick='asignar_servicio()' ><td style='text-align:center' >" + xnro + " </td><td style='text-align:left'>" + this.IdBienServicio +
+                                " </td><td >" + this.Descripcion + " </td></tr>";
+                        xnro++;
+                    });
+
+                    $("#bodyservicio").html(html == "" ? "<tr><td colspan='3'> <div align=center>No se encontraron resultados</div></td></tr>" : html);
+                },
+                error: function (a, b, c) {
+                    alert(a.responseText);
+                    $("#results").html(a.responseText);
+                }
+            });
+        }
+        }
+
+        function asignar_fila(a) {
+            $("#fila_servicio" + a).val();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         function carga_submit() {
             $("#guiaiInsert").submit();
@@ -512,7 +602,7 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
             }
         }
 
-        $(document).ready(function () {
+       /* $(document).ready(function () {
             url = location.host;
 
             //Obtener transacciones
@@ -538,13 +628,7 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
             }).keyup();
 
 
-            var f = new Date();
-
-            fechaactual = ('0' + f.getDate()).slice(-2).toString()
-               + '/' + ('0' + (f.getMonth() + 1)).slice(-2).toString()
-               + '/' + f.getFullYear().toString();
-
-            $("#fecha").val(fechaactual);
+            
 
 
             listar_guiai();
@@ -561,7 +645,7 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
 
 
 
-        });
+        });*/
 
         $('.btn-ok').click(function (e) {
             req = $("#del_idguia").val();
@@ -614,7 +698,7 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
 
         function listar_guiai() {
 
-            $("#body_guia").html("<tr><td colspan=3><div align=center ><img src='../images/loader.gif'></div></td></tr>");
+            $("#body_guia").html("<tr><td colspan=6><div align=center ><img src='../images/loader.gif'></div></td></tr>");
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
@@ -628,12 +712,12 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
                     $.each(customers, function () {
 
                         //<td> " + this.Estado + "</td>
-                        html += "<tr id='fila" + xnro + "' onclick=detalle_guia('" + this.IdRequerimiento + "','" + xnro + "') style='cursor:pointer'><td style='width:100px;text-align:center'>" + this.IdRequerimiento + " </td><td style='width:100px;text-align:center'> " + this.Fecha + "</td><td style='width:700px'> " +
+                        html += "<tr id='fila" + xnro + "' onclick=detalle_guia('" + this.IdRequerimiento + "','" + xnro + "') style='cursor:pointer'><td style='width:100px;text-align:center'>" + this.IdRequerimiento + " </td><td style='width:100px;text-align:center'>" + this.IdRequerimiento + " </td><td style='width:100px;text-align:center'>" + this.IdRequerimiento + " </td><td style='width:100px;text-align:center'>" + this.IdRequerimiento + " </td><td style='width:100px;text-align:center'> " + this.Fecha + "</td><td style='width:700px'> " +
 						this.Descripcion + "</td></tr>";
                         xnro++;
                     });
 
-                    $("#body_guia").html(html == "" ? "<tr><td colspan='5'> <div align=center>No se encontraron resultados</div></td></tr>" : html);
+                    $("#body_guia").html(html == "" ? "<tr><td colspan='6'> <div align=center>No se encontraron resultados</div></td></tr>" : html);
                 },
                 error: function (a, b, c) {
                     /*alert(a.responseText);
@@ -705,7 +789,7 @@ background-image:linear-gradient(top,#f9f9f9,#e3e4e6);
                     $.each(customers, function () {
 
                         //<td> " + this.Estado + "</td>
-                        html += "<tr><td style='width:30px'>" + this.Item + " </td><td style='width:90px'> " + this.Codigo + "</td><td style='width:620px'> " + this.Descripcion + "</td><td style='width:70px'> " + this.UM + "</td><td style='width:60px'> " + parseFloat(this.Cantidad).toFixed(2) + "</td></tr>";
+                        html += "<tr><td style='width:30px'>" + this.Item + " </td><td style='width:90px'> " + this.Codigo + "</td><td style='width:90px'> " + this.Codigo + "</td><td style='width:90px'> " + this.Codigo + "</td><td style='width:90px'> " + this.Codigo + "</td><td style='width:620px'> " + this.Descripcion + "</td><td style='width:70px'> " + this.UM + "</td><td style='width:60px'> " + parseFloat(this.Cantidad).toFixed(2) + "</td></tr>";
 
                     });
 

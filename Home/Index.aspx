@@ -207,6 +207,7 @@
                   <li id="0800" class="vineta" style="display:none"><a href="#"><i class="fa fa-group"></i><span>LOCADOR</span> <i class="fa fa-angle-left pull-right"></i></a>
 			            <ul class="treeview-menu" style="padding-left: 0px;">
                         <li id="0801" class="vineta" style="display:none" ><a href="../home/locadorxgerencia.aspx" class="ajaxmenu"><i class="fa fa-exchange"></i> Gerencia</a></li>
+                        <li id="0802" class="vineta" style="display:none" ><a href="../home/incidencia.aspx" class="ajaxmenu"><i class="fa fa-warning"></i> Incidencia</a></li>
 						</ul>	
 		        </li>
               </ul>

@@ -1729,7 +1729,7 @@ ByVal empresa As String, ByVal idcontrato As String, ByVal numeroitem As String,
                         Dim m As String = ""
 
                         For i As Integer = 0 To (n - 1)
-                            If CInt(atendidoxp(i)) > 0 Then
+                            If (atendidoxp(i) * 1) <> 0 Then
                                 strMensajeItem = InsertarDetalleRequerimientoAlmacen(nro, IdCentroCosto, "000002", cod_articulop(i), unip(i), atendidoxp(i) * 1, cup(i), empresa, placap(i), transaccion, conn)
                             End If
                         Next
